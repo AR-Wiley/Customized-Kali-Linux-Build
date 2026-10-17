@@ -1,18 +1,15 @@
 import os
 import sys
 
-root_dir = "/var/log/SysAdmin"
-sub_dir = ["Updates", "Installations", "Scripts", "Software", "Users", "Other"]
+root_dir = "/var/log/SysAdmin-Logs"
+sub_dir = ["Updates", "Installations", "Scripts", "Software", "Users", "Services", "Security", "System", "Hardware", "Network", "Other"]
 
-def checkRoot():
-
+def checkRoot()
         if os.getuid() != 0:
                 print("This sript must be run as root", file=sys.stderr)
                 sys.exit(1)
 
-
 def rootDir(path):
-
     if not os.path.exists(path):
         print("Root path does not exist")
         print("Creating path")
@@ -23,10 +20,8 @@ def rootDir(path):
             print(f"An error has occured: {e}")
     else:
         print(f"{path} already exists")
-		
-		
-def subDir(rootDir, subDir):
 
+def subDir(rootDir, subDir):
         for dir in subDir:
             if not os.path.exists(os.path.join(rootDir, dir)):
                 print("Sub directory path does not exist")
@@ -40,6 +35,6 @@ def subDir(rootDir, subDir):
                 print(f"{path} already exists")
 
 
-checkRoot
+checkRoot()
 rootDir(root_dir)
 subDir(root_dir, sub_dir)
