@@ -4,7 +4,7 @@ import sys
 root_dir = "/var/log/SysAdmin-Logs"
 sub_dir = ["Updates", "Installations", "Scripts", "Software", "Users", "Services", "Security", "System", "Hardware", "Network", "Other"]
 
-def checkRoot()
+def checkRoot():
         if os.getuid() != 0:
                 print("This sript must be run as root", file=sys.stderr)
                 sys.exit(1)
